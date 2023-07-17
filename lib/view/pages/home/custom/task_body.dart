@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tasks/Constant/Constant.dart';
-import 'package:tasks/Controller/HomeController.dart';
-import 'package:tasks/View/TaskBody/DissmissableBackground.dart';
+import 'package:tasks/core/Constant/colors.dart';
+import 'package:tasks/View/pages/home/custom/dismisable_task.dart';
 
-class TaskScreen extends StatelessWidget {
+class TaskBody extends StatelessWidget {
   //constractor of this class to use it in listView
-  TaskScreen(
-      {required this.title,
+  TaskBody(
+      {super.key,
+      required this.title,
       this.checkChange,
       required this.checkTask,
       this.onDismissed,
@@ -18,7 +17,7 @@ class TaskScreen extends StatelessWidget {
   final bool checkTask;
   final Function(DismissDirection)? onDismissed;
   final VoidCallback longTap;
-  UniqueKey dismissibleKey = UniqueKey();
+  final UniqueKey dismissibleKey = UniqueKey();
   @override
   Widget build(BuildContext context) {
     //body of the screen
@@ -52,7 +51,7 @@ class TaskScreen extends StatelessWidget {
                   Checkbox(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4)),
-                      activeColor: backgroundColor,
+                      activeColor: AppColors.backgroundColor,
                       value: checkTask,
                       onChanged: checkChange),
                 ],
