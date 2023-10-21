@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/Constant/Constant.dart';
+
+import '../../../../core/Constant/colors.dart';
 
 class MainNotesBody extends StatelessWidget {
   const MainNotesBody(
@@ -24,7 +25,7 @@ class MainNotesBody extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color: AppColors.backgroundColor,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
@@ -36,13 +37,15 @@ class MainNotesBody extends StatelessWidget {
                 Text(
                   "Day : $day",
                   style: TextStyle(
-                      color: white, fontSize: 16, fontWeight: FontWeight.bold),
+                      color: AppColors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                 ),
                 IconButton(
                     onPressed: delete,
                     icon: Icon(
                       Icons.delete,
-                      color: white,
+                      color: AppColors.white,
                     ))
               ],
             ),
@@ -55,12 +58,16 @@ class MainNotesBody extends StatelessWidget {
                 Text(
                   "$date",
                   style: TextStyle(
-                      color: white, fontSize: 16, fontWeight: FontWeight.bold),
+                      color: AppColors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                 ),
                 Text(
                   "Number of task:$number",
                   style: TextStyle(
-                      color: white, fontSize: 16, fontWeight: FontWeight.bold),
+                      color: AppColors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -70,7 +77,9 @@ class MainNotesBody extends StatelessWidget {
             Text(
               "Number of task not done:$notDoneNumber",
               style: TextStyle(
-                  color: white, fontSize: 16, fontWeight: FontWeight.bold),
+                  color: AppColors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
             ),
           ],
         ),

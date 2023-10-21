@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/Constant/Constant.dart';
-import 'package:tasks/Widget/CustomForm.dart';
+
+import '../core/Constant/colors.dart';
+import 'CustomForm.dart';
 
 class CustomSearchField extends StatelessWidget {
   const CustomSearchField({super.key, this.textController, this.onChanged});
@@ -14,7 +15,7 @@ class CustomSearchField extends StatelessWidget {
       child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           decoration: BoxDecoration(
-              color: white, borderRadius: BorderRadius.circular(20)),
+              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
           child: CustomForm(
               onChanged: onChanged,
               textController: textController,

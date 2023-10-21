@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tasks/Widget/custom_app_bar.dart';
-import 'package:tasks/Widget/custom_floating_action_button.dart';
 import 'package:tasks/modules/main_page/controller/main_page_controller.dart';
-
+import '../../../../Widget/custom_app_bar.dart';
+import '../../../../Widget/custom_floating_action_button.dart';
 import '../../../../Widget/custom_search_form.dart';
 import '../../../task_page/view/pages/tasks_page.dart';
 import '../widgets/delete_dialog.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:tasks/Constant/Constant.dart';
 import 'package:get/get.dart';
+import '../../../../core/Constant/colors.dart';
 import '../../controller/tasks_controller.dart';
 import '../widgets/add_task_dialog.dart';
 import '../widgets/delete_dialog.dart';
@@ -28,14 +28,14 @@ class TasksPage extends StatelessWidget {
                     taskController.addTask();
                   });
             },
-            backgroundColor: indigo,
+            backgroundColor: AppColors.indigo,
             child: Icon(
               Icons.add,
-              color: white,
+              color: AppColors.white,
             )),
         floatingActionButtonLocation:
             FloatingActionButtonLocation.miniCenterFloat,
-        backgroundColor: backgroundColor,
+        backgroundColor: AppColors.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
           child: SingleChildScrollView(
@@ -48,7 +48,8 @@ class TasksPage extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.73,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: white, borderRadius: BorderRadius.circular(12)),
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(12)),
                     child: ListView.builder(
                         itemCount: tasksController.taskList.length,
                         itemBuilder: (context, index) => TasksBody(

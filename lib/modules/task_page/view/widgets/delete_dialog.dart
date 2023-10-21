@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../Constant/Constant.dart';
 import '../../../../Widget/CustomButton.dart';
+import '../../../../core/Constant/colors.dart';
+
 // import '../../controller/tasks_controller.dart';
 
 // TasksControllerImplement taskController = Get.find();
@@ -11,8 +11,8 @@ deleteTskDialog({
 }) {
   Get.defaultDialog(
     title: 'Delete Task',
-    titleStyle:
-        TextStyle(fontSize: 20, color: indigo, fontWeight: FontWeight.bold),
+    titleStyle: TextStyle(
+        fontSize: 20, color: AppColors.indigo, fontWeight: FontWeight.bold),
     middleText: '',
     titlePadding: const EdgeInsets.only(left: 60, right: 60, top: 20),
     content: Padding(

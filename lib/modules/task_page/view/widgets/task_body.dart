@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/Constant/Constant.dart';
+
+import '../../../../core/Constant/colors.dart';
 
 class TasksBody extends StatelessWidget {
   TasksBody(
@@ -45,7 +46,7 @@ class TasksBody extends StatelessWidget {
                     Checkbox(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
-                        activeColor: backgroundColor,
+                        activeColor: AppColors.backgroundColor,
                         value: checkTask,
                         onChanged: checkChange),
                     Column(
@@ -54,13 +55,13 @@ class TasksBody extends StatelessWidget {
                             onPressed: editFun,
                             icon: Icon(
                               Icons.edit,
-                              color: indigo,
+                              color: AppColors.indigo,
                             )),
                         IconButton(
                             onPressed: onDelete,
                             icon: Icon(
                               Icons.delete_outlined,
-                              color: red,
+                              color: AppColors.red,
                             )),
                       ],
                     ),

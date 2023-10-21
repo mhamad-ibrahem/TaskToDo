@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Constant/Constant.dart';
+import '../core/Constant/colors.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
   const CustomFloatingActionButton({super.key, this.onPressed});
@@ -9,10 +9,10 @@ class CustomFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
         onPressed: onPressed,
-        backgroundColor: indigo,
-        child: Icon(
+        backgroundColor: AppColors.indigo,
+        child: const Icon(
           Icons.add,
-          color: white,
+          color: AppColors.white,
         ));
   }
 }

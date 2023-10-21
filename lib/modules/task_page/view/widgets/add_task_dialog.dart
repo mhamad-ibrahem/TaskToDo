@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../Constant/Constant.dart';
 import '../../../../Widget/CustomButton.dart';
 import '../../../../Widget/CustomForm.dart';
+import '../../../../core/Constant/colors.dart';
 import '../../../../core/function/validation.dart';
 // import '../../controller/tasks_controller.dart';
 
@@ -15,8 +14,8 @@ addTaskDialog(
     bool isUpdate = false}) {
   Get.defaultDialog(
     title: isUpdate ? 'Edit Task' : 'Add Task',
-    titleStyle:
-        TextStyle(fontSize: 20, color: indigo, fontWeight: FontWeight.bold),
+    titleStyle: TextStyle(
+        fontSize: 20, color: AppColors.indigo, fontWeight: FontWeight.bold),
     middleText: '',
     titlePadding: const EdgeInsets.only(left: 60, right: 60, top: 20),
     content: Padding(

@@ -3,12 +3,14 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tasks/modules/main_page/view/pages/main_page.dart';
 
+import 'View/pages/home/home_page.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //init hive
   await Hive.initFlutter();
   //open hive box
-  var box = await Hive.openBox('myBox');
+  await Hive.openBox('myBox');
   runApp(const MyApp());
 }
 

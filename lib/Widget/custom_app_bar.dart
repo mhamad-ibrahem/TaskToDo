@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../Constant/Constant.dart';
+import '../core/Constant/colors.dart';
 
 PreferredSizeWidget? customAppBar({
   required String title,
@@ -9,7 +9,7 @@ PreferredSizeWidget? customAppBar({
   Color? color,
 }) {
   return AppBar(
-    backgroundColor: color ?? backgroundColor,
+    backgroundColor: color ?? AppColors.backgroundColor,
     centerTitle: true,
     leading: isBack
         ? IconButton(
@@ -18,12 +18,13 @@ PreferredSizeWidget? customAppBar({
             },
             icon: Icon(
               Icons.arrow_back_ios_new,
-              color: indigo,
+              color: AppColors.indigo,
             ))
         : null,
     title: Text(
       title,
-      style: TextStyle(color: white, fontSize: 20, fontWeight: FontWeight.w500),
+      style: const TextStyle(
+          color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w500),
     ),
   );
 }

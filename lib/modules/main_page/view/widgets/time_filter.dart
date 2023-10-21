@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../Constant/Constant.dart';
+import '../../../../core/Constant/colors.dart';
 
 class TimeFilter extends StatelessWidget {
   const TimeFilter({
@@ -35,7 +34,7 @@ class TimeFilter extends StatelessWidget {
               height: 40,
               width: MediaQuery.of(context).size.width / 3.5,
               decoration: BoxDecoration(
-                  border: Border.all(color: black),
+                  border: Border.all(color: AppColors.black),
                   borderRadius: const BorderRadius.all(Radius.circular(5)),
                   color: Colors.white),
               child: DropdownButton(

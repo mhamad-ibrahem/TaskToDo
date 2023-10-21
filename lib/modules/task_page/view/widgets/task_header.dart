@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../Constant/Constant.dart';
+import '../../../../core/Constant/colors.dart';
 import '../../controller/tasks_controller.dart';
 
 class TaskHeader extends StatelessWidget {
@@ -16,7 +16,7 @@ class TaskHeader extends StatelessWidget {
           children: [
             Icon(
               Icons.playlist_add_check_rounded,
-              color: white,
+              color: AppColors.white,
               size: 33,
             ),
             const SizedBox(
@@ -25,7 +25,9 @@ class TaskHeader extends StatelessWidget {
             Text(
               'TaskToDo',
               style: TextStyle(
-                  fontSize: 30, color: white, fontWeight: FontWeight.bold),
+                  fontSize: 30,
+                  color: AppColors.white,
+                  fontWeight: FontWeight.bold),
             )
           ],
         ),
@@ -35,7 +37,9 @@ class TaskHeader extends StatelessWidget {
         //number of task in the screen
         Text('${taskController.taskList.length} Task',
             style: TextStyle(
-                fontSize: 15, color: white, fontWeight: FontWeight.bold)),
+                fontSize: 15,
+                color: AppColors.white,
+                fontWeight: FontWeight.bold)),
         const SizedBox(
           height: 20,
         ),
