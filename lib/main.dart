@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:tasks/View/Home/HomeScreen.dart';
 import 'package:get/get.dart';
+import 'package:tasks/modules/main_page/view/pages/main_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: MainPage(),
     );
   }
 }
