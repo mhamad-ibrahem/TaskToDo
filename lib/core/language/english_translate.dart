@@ -1,0 +1,35 @@
+Map<String, String> en = {
+  //main page
+  'Filter by': 'Filter by',
+  'Number of task not done:': 'Number of task not done:',
+  'Number of task:': 'Number of task:',
+  'Day': 'Day',
+  'Yes': 'Yes',
+  'Cancel': 'Cancel',
+  'Are you sure you want delete this ?': 'Are you sure you want delete this ?',
+  'Main Page': 'Main Page',
+  'Oldest': 'Oldest',
+  'Newest': 'Newest',
+  'arabic': 'arabic',
+  'english': 'english',
+  'Search by date': 'Search by date',
+  'Sunday': 'Sunday',
+  'Monday': 'Monday',
+  'Tuesday': 'Tuesday',
+  'Wednesday': 'Wednesday',
+  'Thursday': 'Thursday',
+  'Friday': 'Friday',
+  'Saturday': 'Saturday',
+
+  //tasks
+  'TaskToDo': 'TaskToDo',
+  'Task': 'Task',
+  'Delete': 'Delete',
+  'Are you sure you want to delete this task ?!':
+      'Are you sure you want to delete this task ?!',
+  'Delete Task': 'Delete Task',
+  'Update Task': 'Update Task',
+  'Add Task': 'Add Task',
+  'enter task': 'enter task',
+  'Edit Task': 'Edit Task',
+};

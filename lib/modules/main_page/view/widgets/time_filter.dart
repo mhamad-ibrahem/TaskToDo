@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../core/Constant/colors.dart';
 
 class TimeFilter extends StatelessWidget {
@@ -19,7 +20,7 @@ class TimeFilter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Filter by',
+            'Filter by'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headline1!
@@ -39,13 +40,14 @@ class TimeFilter extends StatelessWidget {
                   color: Colors.white),
               child: DropdownButton(
                 isExpanded: true,
-                underline: SizedBox(),
+                underline: const SizedBox(),
+                // hint: Text(filterBy.tr),
                 value: filterBy,
                 items: sortList!
                     .map((e) => DropdownMenuItem(
                           value: e,
                           child: Text(
-                            e,
+                            e.tr,
                           ),
                         ))
                     .toList(),

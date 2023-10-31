@@ -59,7 +59,7 @@ class TasksBody extends StatelessWidget {
                             )),
                         IconButton(
                             onPressed: onDelete,
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.delete_outlined,
                               color: AppColors.red,
                             )),

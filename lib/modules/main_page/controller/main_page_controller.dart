@@ -14,11 +14,12 @@ class MainPageController extends GetxController {
   List notes = [];
   String? id;
   bool isReversed = true;
-  List<String> sortedList = ['Newest', 'Oldest'];
+  List<String> sortedList = ['Newest'.tr, 'Oldest'.tr];
   List searchList = [];
-  String selectedSorted = 'Newest';
+  String selectedSorted = 'Newest'.tr;
   changeSorted(String sorted) {
     selectedSorted = sorted;
+    log('sorted : $sorted');
     sortedBy(selectedSorted);
     update();
   }
@@ -39,7 +40,7 @@ class MainPageController extends GetxController {
   }
 
   sortedBy(String date) async {
-    if (date == 'Oldest') {
+    if (date == 'Oldest'.tr) {
       isReversed = false;
 
       update();

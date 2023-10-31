@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/Constant/colors.dart';
 
@@ -35,15 +36,15 @@ class MainNotesBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Day : $day",
-                  style: TextStyle(
+                  "${'Day'.tr} : $day",
+                  style: const TextStyle(
                       color: AppColors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.bold),
                 ),
                 IconButton(
                     onPressed: delete,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.delete,
                       color: AppColors.white,
                     ))
@@ -57,14 +58,14 @@ class MainNotesBody extends StatelessWidget {
               children: [
                 Text(
                   "$date",
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: AppColors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "Number of task:$number",
-                  style: TextStyle(
+                  "${'Number of task:'.tr}$number",
+                  style: const TextStyle(
                       color: AppColors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.bold),
@@ -75,8 +76,8 @@ class MainNotesBody extends StatelessWidget {
               height: 15,
             ),
             Text(
-              "Number of task not done:$notDoneNumber",
-              style: TextStyle(
+              "${'Number of task not done:'.tr}$notDoneNumber",
+              style: const TextStyle(
                   color: AppColors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.bold),

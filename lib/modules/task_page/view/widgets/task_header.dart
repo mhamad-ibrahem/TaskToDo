@@ -14,7 +14,7 @@ class TaskHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(
+            const Icon(
               Icons.playlist_add_check_rounded,
               color: AppColors.white,
               size: 33,
@@ -23,8 +23,8 @@ class TaskHeader extends StatelessWidget {
               width: 20,
             ),
             Text(
-              'TaskToDo',
-              style: TextStyle(
+              'TaskToDo'.tr,
+              style: const TextStyle(
                   fontSize: 30,
                   color: AppColors.white,
                   fontWeight: FontWeight.bold),
@@ -35,8 +35,8 @@ class TaskHeader extends StatelessWidget {
           height: 20,
         ),
         //number of task in the screen
-        Text('${taskController.taskList.length} Task',
-            style: TextStyle(
+        Text('${taskController.taskList.length} ${"Task".tr}',
+            style: const TextStyle(
                 fontSize: 15,
                 color: AppColors.white,
                 fontWeight: FontWeight.bold)),

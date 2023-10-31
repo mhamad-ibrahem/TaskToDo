@@ -29,7 +29,7 @@ class TasksPage extends StatelessWidget {
                   });
             },
             backgroundColor: AppColors.indigo,
-            child: Icon(
+            child: const Icon(
               Icons.add,
               color: AppColors.white,
             )),

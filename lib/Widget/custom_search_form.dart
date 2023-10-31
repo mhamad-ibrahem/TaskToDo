@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../core/Constant/colors.dart';
 import 'CustomForm.dart';
@@ -19,7 +20,7 @@ class CustomSearchField extends StatelessWidget {
           child: CustomForm(
               onChanged: onChanged,
               textController: textController,
-              hint: 'Search by date')),
+              hint: 'Search by date'.tr)),
     );
   }
 }

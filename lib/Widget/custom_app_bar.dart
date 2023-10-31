@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tasks/core/language/localization_controller.dart';
 
 import '../core/Constant/colors.dart';
 
@@ -8,9 +9,9 @@ PreferredSizeWidget? customAppBar({
   bool isBack = true,
   Color? color,
 }) {
+  LocalizationController controller = Get.find();
   return AppBar(
     backgroundColor: color ?? AppColors.backgroundColor,
-    centerTitle: true,
     leading: isBack
         ? IconButton(
             onPressed: () {
@@ -26,5 +27,34 @@ PreferredSizeWidget? customAppBar({
       style: const TextStyle(
           color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w500),
     ),
+    actions: [
+      Row(
+        children: [
+          const SizedBox(
+            width: 20,
+          ),
+          Text('english'.tr,
+              style: const TextStyle(
+                  color: AppColors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500)),
+          Switch(
+              activeColor: AppColors.indigo,
+              value: controller.enableArabicLanguage,
+              onChanged: (val) {
+                controller.changeLanguage(
+                    controller.language == const Locale('ar') ? 'en' : 'ar');
+              }),
+          Text('arabic'.tr,
+              style: const TextStyle(
+                  color: AppColors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500)),
+          const SizedBox(
+            width: 20,
+          ),
+        ],
+      )
+    ],
   );
 }

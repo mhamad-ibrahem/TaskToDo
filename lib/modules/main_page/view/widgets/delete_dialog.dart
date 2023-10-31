@@ -8,7 +8,7 @@ import '../../controller/main_page_controller.dart';
 deleteDialog(int index) {
   final MainPageController controller = Get.find();
   Get.defaultDialog(
-      title: 'Are you sure you want delete this ?',
+      title: 'Are you sure you want delete this ?'.tr,
       titleStyle: TextStyle(
           fontSize: 20, color: AppColors.indigo, fontWeight: FontWeight.bold),
       middleText: '',
@@ -28,7 +28,7 @@ deleteDialog(int index) {
                     fun: () {
                       Get.back();
                     },
-                    text: 'Cancel',
+                    text: 'Cancel'.tr,
                   ),
                 ),
               ),
@@ -40,7 +40,7 @@ deleteDialog(int index) {
                     fun: () {
                       controller.deleteNote(index);
                     },
-                    text: 'Yes',
+                    text: 'Yes'.tr,
                   ),
                 ),
               ),

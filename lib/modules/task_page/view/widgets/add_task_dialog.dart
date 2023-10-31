@@ -13,7 +13,7 @@ addTaskDialog(
     required void Function() fun,
     bool isUpdate = false}) {
   Get.defaultDialog(
-    title: isUpdate ? 'Edit Task' : 'Add Task',
+    title: isUpdate ? 'Edit Task'.tr : 'Add Task'.tr,
     titleStyle: TextStyle(
         fontSize: 20, color: AppColors.indigo, fontWeight: FontWeight.bold),
     middleText: '',
@@ -31,7 +31,7 @@ addTaskDialog(
                   //to check valid input
                   return validate(value!, 200, 1);
                 },
-                hint: 'enter task',
+                hint: 'enter task'.tr,
                 textController: task),
             const SizedBox(
               height: 0,
@@ -40,11 +40,14 @@ addTaskDialog(
         ),
       ),
     ),
-    confirm: CustomButton(
-      height: 45,
-      width: double.infinity * 0.5,
-      fun: fun,
-      text: !isUpdate ? 'Add Task' : 'Update Task',
+    confirm: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: CustomButton(
+        height: 45,
+        width: double.infinity * 0.5,
+        fun: fun,
+        text: !isUpdate ? 'Add Task'.tr : 'Update Task'.tr,
+      ),
     ),
   );
 }

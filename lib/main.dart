@@ -3,7 +3,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tasks/modules/main_page/view/pages/main_page.dart';
 
-import 'View/pages/home/home_page.dart';
+import 'core/language/localization.dart';
+import 'core/language/localization_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,17 +12,20 @@ void main() async {
   await Hive.initFlutter();
   //open hive box
   await Hive.openBox('myBox');
-  runApp(const MyApp());
+  await Hive.openBox('settingsBox');
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  MyApp({super.key});
+  final LocalizationController controller = Get.put(LocalizationController());
   // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: controller.language,
+      translations: Localization(),
       home: MainPage(),
     );
   }

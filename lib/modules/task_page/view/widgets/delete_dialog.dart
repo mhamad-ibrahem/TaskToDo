@@ -10,7 +10,7 @@ deleteTskDialog({
   required void Function() fun,
 }) {
   Get.defaultDialog(
-    title: 'Delete Task',
+    title: 'Delete Task'.tr,
     titleStyle: TextStyle(
         fontSize: 20, color: AppColors.indigo, fontWeight: FontWeight.bold),
     middleText: '',
@@ -22,8 +22,8 @@ deleteTskDialog({
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            'Are you sure you want to delete this task ?!',
+          Text(
+            'Are you sure you want to delete this task ?!'.tr,
             textAlign: TextAlign.center,
           ),
           const SizedBox(
@@ -38,7 +38,7 @@ deleteTskDialog({
                   fun: () {
                     Get.back();
                   },
-                  text: 'Cancel',
+                  text: 'Cancel'.tr,
                 ),
               ),
               const SizedBox(
@@ -49,7 +49,7 @@ deleteTskDialog({
                   height: 45,
                   width: double.infinity * 0.5,
                   fun: fun,
-                  text: 'Delete',
+                  text: 'Delete'.tr,
                 ),
               ),
             ],
