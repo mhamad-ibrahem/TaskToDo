@@ -76,6 +76,32 @@ class TasksControllerImplement extends GetxController {
 
     box.put('notes', mainPageController.notes);
     update();
+    MainPageController controller = Get.find();
+    if (controller.selectedIndex == 1) {
+      List<dynamic> notesList = controller.notes
+          .where((element) =>
+              (element['numberOfTask'] == element['numberOfTaskRemains'] ||
+                  element['numberOfTask'] == 0))
+          .toList();
+      controller.noteList = notesList;
+    }
+    if (controller.selectedIndex  == 2) {
+      List<dynamic> notesList = controller.notes
+          .where((element) =>
+              (element['numberOfTask'] != element['numberOfTaskRemains'] &&
+                  element['numberOfTaskRemains'] != 0))
+          .toList();
+      controller.noteList = notesList;
+    }
+    if (controller.selectedIndex  == 3) {
+      List<dynamic> notesList = controller.notes
+          .where((element) => (element['numberOfTask'] != 0 &&
+              element['numberOfTaskRemains'] == 0))
+          .toList();
+      controller.noteList = notesList;
+    }
+    changeNoteStatus();
+    controller.update();
   }
 
   addTask() {
@@ -94,6 +120,34 @@ class TasksControllerImplement extends GetxController {
     updateTask();
     Get.back();
     update();
+  }
+
+  changeNoteStatus() {
+    if (mainPageController.selectedIndex == 1) {
+      mainPageController.noteList.forEach((element) {
+        //remove the note from pending notes
+        if (element['numberOfTask'] != element['numberOfTaskRemains']&&element['numberOfTask'] !=0) {
+          mainPageController.noteList.removeWhere((element) =>
+              element['numberOfTask'] != element['numberOfTaskRemains']&&element['numberOfTask'] !=0);
+        }
+      });
+    } else if (mainPageController.selectedIndex == 2) {
+       mainPageController.noteList.forEach((element) {
+        //remove the note from processing notes
+        if (element['numberOfTaskRemains'] == 0) {
+          mainPageController.noteList.removeWhere((element) =>
+              element['numberOfTaskRemains'] == 0);
+        }
+      });
+    } else if (mainPageController.selectedIndex == 3) {
+       mainPageController.noteList.forEach((element) {
+        //remove the note from processing notes
+        if (element['numberOfTaskRemains'] != 0) {
+          mainPageController.noteList.removeWhere((element) =>
+              element['numberOfTaskRemains'] != 0);
+        }
+      });
+    }
   }
 
   @override

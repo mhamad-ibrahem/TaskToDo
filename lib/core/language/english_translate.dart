@@ -20,7 +20,11 @@ Map<String, String> en = {
   'Thursday': 'Thursday',
   'Friday': 'Friday',
   'Saturday': 'Saturday',
-
+  'Status:': 'Status :',
+  'Done': 'Done',
+  'Processing': 'Processing',
+  'Pending': 'Pending',
+  "All": "All",
   //tasks
   'TaskToDo': 'TaskToDo',
   'Task': 'Task',

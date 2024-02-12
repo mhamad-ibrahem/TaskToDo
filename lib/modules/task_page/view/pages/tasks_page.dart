@@ -19,6 +19,7 @@ class TasksPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         //button to add task
+        // appBar: customAppBar(title: 'TaskToDo'.tr,isWithSwitch: false,isWithElevation: false),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
               addTaskDialog(

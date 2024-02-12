@@ -11,7 +11,7 @@ class MainNotesBody extends StatelessWidget {
       required this.number,
       this.delete,
       this.onTap,
-      required this.notDoneNumber});
+      required this.notDoneNumber, });
   final String day;
   final String date;
   final int number;
@@ -26,7 +26,7 @@ class MainNotesBody extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: AppColors.backgroundColor,
+          color:(notDoneNumber==0&&number!=0)?AppColors.lightGreen:notDoneNumber!=number?AppColors.indigo : AppColors.orange,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
@@ -77,6 +77,16 @@ class MainNotesBody extends StatelessWidget {
             ),
             Text(
               "${'Number of task not done:'.tr}$notDoneNumber",
+              style: const TextStyle(
+                  color: AppColors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
+             const SizedBox(
+              height: 15,
+            ),
+            Text(
+              "${'Status:'.tr} ${(notDoneNumber==0&&number!=0)?'Done'.tr:notDoneNumber!=number?'Processing'.tr:'Pending'.tr}",
               style: const TextStyle(
                   color: AppColors.white,
                   fontSize: 16,

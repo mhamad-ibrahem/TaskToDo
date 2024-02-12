@@ -9,13 +9,16 @@ class MainPageController extends GetxController {
   final TextEditingController search = TextEditingController();
   final box = Hive.box('myBox');
   final DateTime dateTime = DateTime.now();
+  String selectedDate = '';
   String? dateName;
   String? date;
   List notes = [];
   String? id;
   bool isReversed = true;
+  int selectedIndex = 0;
   List<String> sortedList = ['Newest'.tr, 'Oldest'.tr];
   List searchList = [];
+  List noteList = [];
   String selectedSorted = 'Newest'.tr;
   changeSorted(String sorted) {
     selectedSorted = sorted;
@@ -30,39 +33,61 @@ class MainPageController extends GetxController {
     if (value.isEmpty) {
       list = notes; //if searching value is empty return full list
     } else {
-      list = notes
-          .where((item) =>
-              item['date'].toLowerCase().contains(value.toLowerCase()))
-          .toList();
+      list = selectedIndex == 0
+          ? notes
+              .where((item) =>
+                  item['date'].toLowerCase().contains(value.toLowerCase()))
+              .toList()
+          : noteList
+              .where((item) =>
+                  item['date'].toLowerCase().contains(value.toLowerCase()))
+              .toList();
     }
     searchList = list;
     update();
   }
 
   sortedBy(String date) async {
-    if (date == 'Oldest'.tr) {
-      isReversed = false;
+    if (date == sortedList[0]) {
+      if (selectedIndex == 0) {
+        notes.sort((a, b) => b['dateValue'].compareTo(a['dateValue']));
+      } else {
+        noteList.sort((a, b) => b['dateValue'].compareTo(a['dateValue']));
+      }
 
       update();
     } else {
-      isReversed = true;
+      if (selectedIndex == 0) {
+        notes.sort(
+          (a, b) => a['dateValue'].compareTo(b['dateValue']),
+        );
+      } else {
+        noteList.sort(
+          (a, b) => a['dateValue'].compareTo(b['dateValue']),
+        );
+      }
 
       update();
     }
   }
 
-  addNote() {
+  addNote(String dateOfNote, DateTime dateValue) {
     var uuid = const Uuid();
     id = uuid.v1();
     log('id is $id');
-    notes.add({
-      'date': date,
+    Map data = {
+      'date': dateOfNote,
       'day': dateName,
       'id': id,
+      'dateValue': dateValue,
       'numberOfTask': 0,
       'tasks': [],
       'numberOfTaskRemains': 0
-    });
+    };
+    notes.insert(0, data);
+    if (selectedIndex == 1) {
+      noteList.insert(0, data);
+    }
     box.put('notes', notes);
     update();
   }
@@ -73,14 +98,41 @@ class MainPageController extends GetxController {
 
   getNotes() {
     notes = box.get('notes');
+    notes.sort(
+      (a, b) => b['dateValue'].compareTo(a['dateValue']),
+    );
+    noteList = notes;
   }
 
   deleteNote(int index) {
     //remove item from list
-    notes.removeAt(index);
+    if (selectedIndex == 0 && search.text.isEmpty) {
+      notes.removeAt(index);
+    } else if (selectedIndex != 0 && search.text.isEmpty) {
+      notes.removeWhere((element) => element['id'] == noteList[index]['id']);
+      noteList.removeAt(index);
+    } else if (search.text.isNotEmpty) {
+      notes.removeWhere((element) => element['id'] == searchList[index]['id']);
+      searchList.removeAt(index);
+    }
     box.put('notes', notes);
     Get.back();
     update();
+  }
+
+  chooseDate(
+    Future<DateTime?> datePicker,
+  ) async {
+    debugPrint("today date is $date");
+    DateTime? newDate = await datePicker;
+    if (newDate != null) {
+      dateName = DateFormat.EEEE().format(newDate);
+      // date = newDate;
+      log("selected date $newDate");
+      selectedDate = "${newDate.day}-${newDate.month}-${newDate.year}";
+      addNote(selectedDate, newDate);
+      update();
+    } else {}
   }
 
   @override

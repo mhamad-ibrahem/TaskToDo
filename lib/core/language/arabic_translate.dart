@@ -20,7 +20,11 @@ Map<String, String> ar = {
   'Thursday': 'الخميس',
   'Friday': 'الجمعة',
   'Saturday': 'السبت',
-
+  'Status:': 'الحالة :',
+  'Done': 'منتهية',
+  'Processing': 'قيد المعالجة',
+  'Pending': 'بانتظار المعالجة',
+  "All":'الكل',
   //tasks
   'TaskToDo': 'مهام لفعلها',
   'Task': 'المهام',

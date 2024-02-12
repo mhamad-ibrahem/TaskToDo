@@ -14,10 +14,15 @@ class TaskHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            const Icon(
-              Icons.playlist_add_check_rounded,
-              color: AppColors.white,
-              size: 33,
+            GestureDetector(
+              onTap: (){
+                Get.back();
+              },
+              child: const Icon(
+                Icons.arrow_back,
+                color: AppColors.white,
+                size: 33,
+              ),
             ),
             const SizedBox(
               width: 20,

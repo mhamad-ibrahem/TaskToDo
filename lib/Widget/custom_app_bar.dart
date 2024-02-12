@@ -8,10 +8,13 @@ PreferredSizeWidget? customAppBar({
   required String title,
   bool isBack = true,
   Color? color,
+  isWithElevation=true,
+   isWithSwitch=true,
 }) {
   LocalizationController controller = Get.find();
   return AppBar(
     backgroundColor: color ?? AppColors.backgroundColor,
+    elevation: isWithElevation?10:0,
     leading: isBack
         ? IconButton(
             onPressed: () {
@@ -27,7 +30,7 @@ PreferredSizeWidget? customAppBar({
       style: const TextStyle(
           color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w500),
     ),
-    actions: [
+    actions:isWithSwitch? [
       Row(
         children: [
           const SizedBox(
@@ -55,6 +58,6 @@ PreferredSizeWidget? customAppBar({
           ),
         ],
       )
-    ],
+    ]:[],
   );
 }
