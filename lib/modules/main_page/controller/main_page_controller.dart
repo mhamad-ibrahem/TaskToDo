@@ -5,6 +5,8 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../native_with_flutter/sum_numbers_native_channel.dart';
+
 class MainPageController extends GetxController {
   final TextEditingController search = TextEditingController();
   final box = Hive.box('myBox');
@@ -137,6 +139,10 @@ class MainPageController extends GetxController {
 
   @override
   void onInit() {
+    // native code 
+    SumNumbersNativeChannel sumNumbersNativeChannel = SumNumbersNativeChannel();
+    sumNumbersNativeChannel.getSumNumbersBuNative(num1: 2.0,num2: 23.0);
+    
     dateName = DateFormat.EEEE().format(dateTime);
     date = DateFormat('dd-MM-yyyy').format(dateTime);
     log('day is $dateName');

@@ -23,7 +23,7 @@ class TimeFilter extends StatelessWidget {
             'Filter by'.tr,
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displaySmall!
                 .copyWith(fontSize: 17, fontWeight: FontWeight.w600),
           ),
           const SizedBox(

@@ -1,8 +1,7 @@
-package com.example.tasks
+package com.sum_to_numbers
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.embedding.android.FlutterActivity
-
 
 class MainActivity: FlutterActivity() {
     private val CHANNEL =   "com.example.native/channel"
